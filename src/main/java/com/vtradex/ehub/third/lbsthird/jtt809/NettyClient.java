@@ -52,7 +52,7 @@ public class NettyClient {
                 });
 //
 //        Channel channel = bootstrap.connect("110.53.222.19", 32965).channel();
-        Channel channel = bootstrap.connect("127.0.0.1", 8000).channel();
+        Channel channel = bootstrap.connect("127.0.0.1", 8091).channel();
         //循环到连接成功
         while(!channel.isActive()) {
         	TimeUnit.SECONDS.sleep(1);
