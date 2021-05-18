@@ -49,16 +49,13 @@
 			<version>1.2.0-SNAPSHOT</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/io.netty/netty-buffer -->
-<!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
-<dependency>
-    <groupId>io.netty</groupId>
-    <artifactId>netty-all</artifactId>
-    <version>4.1.34.Final</version>
-</dependency>
-
-		
+        <!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>4.1.34.Final</version>
+        </dependency>
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -67,5 +64,30 @@
 			</plugin>
 		</plugins>
 	</build>
-
+    <profiles>
+	    <profile>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <id>uat</id>
+            <build>
+                <finalName>lbs-third</finalName>
+                <resources>
+                    <resource>
+                        <directory>src/main/resources/uat</directory>
+                        <targetPath>${project.build.directory}/classes</targetPath>
+                    </resource>
+                </resources>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-antrun-plugin</artifactId>
+                            <version>1.1</version>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
+          </profile>
+     </profiles>
 </project>
